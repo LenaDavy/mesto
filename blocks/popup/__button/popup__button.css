@@ -1,0 +1,16 @@
+.popup__button {
+    margin-top: 48px;
+    min-height: 50px;
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: inherit;
+}
+
+
+@media screen and (max-width: 549px) {
+    .popup__button {
+      margin-top: 45px;
+    }
+  }

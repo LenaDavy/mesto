@@ -1,0 +1,8 @@
+.popup__content {
+    border: none;
+    padding: 0;
+    height: 14px;
+    margin-top: 57px;
+    display: grid;
+    align-items: start;
+}
