@@ -5,12 +5,12 @@
     align-self: center;
     display: grid;
     background: url(../../../images/profile__plus.svg) no-repeat center;
+    border-radius: 2px;
 }
 
 
 .profile__add-button:hover {
-  background: url(../../../images/profile__plus_hover.svg) no-repeat center;
-  border: 2px solid #545454;
+  opacity: .6;
 }
 
 

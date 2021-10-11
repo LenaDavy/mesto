@@ -1,6 +1,7 @@
 .profile__info {
     display: grid;
-    grid-template-columns: max-content 24px;
+    width: 100%;
+    grid-template-columns: fit-content(calc(100% - 40px)) 24px;
     gap: 16px 18px;
     align-items: end;
 }
@@ -9,5 +10,6 @@
 @media screen and (max-width: 1049px) {
   .profile__info {
     gap: 14px 10px;
+    justify-content: center;
   }
 }

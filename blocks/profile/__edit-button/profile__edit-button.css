@@ -7,6 +7,5 @@
 
 
 .profile__edit-button:hover {
-  background: url(../../../images/profile__pencil_hover.svg) no-repeat center;
-    border: 1px solid #545454;
+  opacity: .6;
 }
