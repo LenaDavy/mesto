@@ -11,6 +11,7 @@
 
 .popup__close:hover {
   opacity: .8;
+  cursor: pointer;
 }
 
 
