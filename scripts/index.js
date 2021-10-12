@@ -6,22 +6,20 @@ const popupName = document.querySelector('.popup__input_type_name');
 const popupActivity = document.querySelector('.popup__input_type_activity');
 const popupClose = document.querySelector('.popup__close');
 const popupForm = document.querySelector('.popup__form');
-function closePopup() {
-  popup.classList.remove('popup_open');
-  popup.classList.add('popup');
+function statusPopup() {
+  popup.classList.toggle('popup_opened');
 };
 function handleFormSubmit(event) {
   event.preventDefault();
   profileTitle.textContent = popupName.value;
   profileText.textContent = popupActivity.value;
-  closePopup();
+  statusPopup();
 };
 editButton.addEventListener('click', function() {
-  popup.classList.remove('popup');
-  popup.classList.add('popup_open');
+  statusPopup();
   popupName.value = profileTitle.textContent;
   popupActivity.value = profileText.textContent;
   }
 );
-popupClose.addEventListener('click', closePopup);
+popupClose.addEventListener('click', statusPopup);
 popupForm.addEventListener('submit', handleFormSubmit);

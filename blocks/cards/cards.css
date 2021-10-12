@@ -7,14 +7,14 @@
 }
 
 
-@media screen and (max-width: 1199px) and (min-width: 940px) {
+@media screen and (max-width: 1199px) and (min-width: 600px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 
-@media screen and (max-width: 939px) {
+@media screen and (max-width: 599px) {
   .cards {
     grid-template-columns: 1fr;
   }
