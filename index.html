@@ -21,67 +21,48 @@
       </div>
       <button class="profile__add-button" type="button"></button>
     </section>
-    <ul class="cards">
-      <li class="card">
-        <img class="card__img" src="images/card__karachaevsk.jpg" alt="фото достопримечательности">
-        <div class="card__description">
-          <h2 class="card__city">Карачаевск</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card__img" src="images/card__gora-ilbrys.jpg" alt="фото достопримечательности">
-        <div class="card__description">
-          <h2 class="card__city">Гора Эльбрус</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card__img" src="images/card__dombai.jpg" alt="фото достопримечательности">
-        <div class="card__description">
-          <h2 class="card__city">Домбай</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card__img" src="images/card__gora-ilbrys.jpg" alt="фото достопримечательности">
-        <div class="card__description">
-          <h2 class="card__city">Гора Эльбрус</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card__img" src="images/card__dombai.jpg" alt="фото достопримечательностис">
-        <div class="card__description">
-          <h2 class="card__city">Домбай</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card__img" src="images/card__karachaevsk.jpg" alt="фото достопримечательности">
-        <div class="card__description">
-          <h2 class="card__city">Карачаево-Черкесия</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </li>
-    </ul>
+    <ul class="cards"></ul>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy;2020 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <template class="template">
+    <li class="card">
+      <button class="card__delete-button" type="button"></button>
+      <img class="card__img" src="images/card__karachaevsk.jpg" alt="фото достопримечательности">
+      <div class="card__description">
+        <h2 class="card__city">Карачаевск</h2>
+        <button class="card__like-button" type="button"></button>
+      </div>
+    </li>
+  </template>
+  <div class="popup popupProfile">
     <div class="popup__main">
-      <button class="popup__close" type="button"></button>
+      <button class="popup__close popupProfile__close" type="button"></button>
       <h3 class="popup__form-title">Редактировать профиль</h3>
-      <form class="popup__form" name="popup__form">
-        <fieldset class="popup__content">
-          <input class="popup__input popup__input_type_name" type="text" name="name">
-        </fieldset>
-        <fieldset class="popup__content">
-          <input class="popup__input popup__input_type_activity" type="text" name="activity">
-        </fieldset>
+      <form class="popup__form popupProfile__form" name="popup__form">
+        <input class="popup__input popup__input_type_name" type="text" name="name">
+        <input class="popup__input popup__input_type_activity" type="text" name="activity">
         <button class="popup__button" type="submit">Сохранить</button>
       </form>
+    </div>
+  </div>
+  <div class="popup popupCard">
+    <div class="popup__main">
+      <button class="popup__close popupCard__close" type="button"></button>
+      <h3 class="popup__form-title">Новое место</h3>
+      <form class="popup__form popupCard__form" name="popup__form">
+        <input class="popup__input popup__input_type_title" type="text" name="title" placeholder="Название">
+        <input class="popup__input popup__input_type_attribute" type="text" name="attribute" placeholder="Ссылка на картинку">
+        <button class="popup__button" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popupImage">
+    <div class="popupImage__main">
+      <button class="popup__close popupImage__close" type="button"></button>
+      <img class="popupImage__picture" src=images/card__karachaevsk.jpg alt="фото достопримечательности">
+      <h3 class="popupImage__city">Город</h3>
     </div>
   </div>
   <script src="scripts/index.js"></script>
