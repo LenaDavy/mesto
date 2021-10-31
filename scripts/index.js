@@ -3,22 +3,22 @@ const profileTitle = document.querySelector('.profile__title');
 const profileText = document.querySelector('.profile__text');
 const addButton = document.querySelector('.profile__add-button');
 
-const popupProfile = document.querySelector('.popup_profile');
-const closeProfileForm = document.querySelector('.popup_profile__close');
+const popupProfile = document.querySelector('.popup_unit_profile');
+const closeProfileForm = document.querySelector('.popup_unit_profile__close');
 const popupName = document.querySelector('.popup__input_type_name');
 const popupActivity = document.querySelector('.popup__input_type_activity');
-const formProfile = document.querySelector('.popup_profile__form');
+const formProfile = document.querySelector('.popup_unit_profile__form');
 
-const popupCard = document.querySelector('.popup_card');
-const closeCardForm = document.querySelector('.popup_card__close');
+const popupCard = document.querySelector('.popup_unit_card');
+const closeCardForm = document.querySelector('.popup_unit_card__close');
 const popupTitle = document.querySelector('.popup__input_type_title');
 const popupAttribute = document.querySelector('.popup__input_type_attribute');
-const formCard = document.querySelector('.popup_card__form');
+const formCard = document.querySelector('.popup_unit_card__form');
 
-const popupImage = document.querySelector('.popup_image');
-const popupCity = document.querySelector('.popup_image__city');
-const popupPicture = document.querySelector('.popup_image__picture');
-const closePopupImage = document.querySelector('.popup_image__close');
+const popupImage = document.querySelector('.popup_unit_image');
+const popupCity = document.querySelector('.popup_unit_image__city');
+const popupPicture = document.querySelector('.popup_unit_image__picture');
+const closePopupImage = document.querySelector('.popup_unit_image__close');
 
 const template = document.querySelector('.template').content;
 const cards = document.querySelector('.cards');
