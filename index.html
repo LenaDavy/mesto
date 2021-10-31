@@ -24,7 +24,7 @@
     <ul class="cards"></ul>
   </main>
   <footer class="footer">
-    <p class="footer__copyright">&copy;2020 Mesto Russia</p>
+    <p class="footer__copyright">&copy;2021 Mesto Russia</p>
   </footer>
   <template class="template">
     <li class="card">
@@ -36,35 +36,36 @@
       </div>
     </li>
   </template>
-  <div class="popup popupProfile">
+  <div class="popup popup_profile">
     <div class="popup__main">
-      <button class="popup__close popupProfile__close" type="button"></button>
+      <button class="popup__close popup_profile__close" type="button"></button>
       <h3 class="popup__form-title">Редактировать профиль</h3>
-      <form class="popup__form popupProfile__form" name="popup__form">
-        <input class="popup__input popup__input_type_name" type="text" name="name">
-        <input class="popup__input popup__input_type_activity" type="text" name="activity">
+      <form class="popup__form popup_profile__form" name="popup_profile__form">
+        <input class="popup__input popup__input_type_name" required type="text" name="name">
+        <input class="popup__input popup__input_type_activity" required type="text" name="activity">
         <button class="popup__button" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
-  <div class="popup popupCard">
+  <div class="popup popup_card">
     <div class="popup__main">
-      <button class="popup__close popupCard__close" type="button"></button>
+      <button class="popup__close popup_card__close" type="button"></button>
       <h3 class="popup__form-title">Новое место</h3>
-      <form class="popup__form popupCard__form" name="popup__form">
-        <input class="popup__input popup__input_type_title" type="text" name="title" placeholder="Название">
-        <input class="popup__input popup__input_type_attribute" type="text" name="attribute" placeholder="Ссылка на картинку">
+      <form class="popup__form popup_card__form" name="popup_card__form">
+        <input class="popup__input popup__input_type_title" required type="text" name="title" placeholder="Название">
+        <input class="popup__input popup__input_type_attribute" required type="url" name="attribute" placeholder="Ссылка на картинку">
         <button class="popup__button" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
-  <div class="popup popupImage">
-    <div class="popupImage__main">
-      <button class="popup__close popupImage__close" type="button"></button>
-      <img class="popupImage__picture" src=images/card__karachaevsk.jpg alt="фото достопримечательности">
-      <h3 class="popupImage__city">Город</h3>
+  <div class="popup popup_image">
+    <div class="popup_image__main">
+      <button class="popup__close popup_image__close" type="button"></button>
+      <img class="popup_image__picture" src=images/card__karachaevsk.jpg alt="фото достопримечательности">
+      <h3 class="popup_image__city">Город</h3>
     </div>
   </div>
+  <script src="scripts/cards.js"></script>
   <script src="scripts/index.js"></script>
 </body>
 </html>
