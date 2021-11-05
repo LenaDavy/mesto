@@ -23,12 +23,30 @@ const closePopupImage = document.querySelector('.popup-image__close');
 const template = document.querySelector('.template').content;
 const cards = document.querySelector('.cards');
 
+function closePopupByOverlay (event) {
+  const activePopup = document.querySelector('.popup_opened')
+  if(event.target.classList.contains('popup_opened')) { 
+    closePopup(activePopup);
+  };
+};
+
+function closePopupByEsc (event) {
+  const activePopup = document.querySelector('.popup_opened')
+  if (event.key === 'Escape') {
+    closePopup(activePopup);
+  };
+}; 
 
 function openPopup(popup) { 
   popup.classList.add('popup_opened');
+  document.addEventListener('mouseup', closePopupByOverlay);
+  document.addEventListener('keydown', closePopupByEsc);
 };
+
 function closePopup(popup) { 
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEsc);
+  document.removeEventListener('mouseup', closePopupByOverlay);
 };
 
 function createCard(item) {
@@ -89,6 +107,7 @@ addButton.addEventListener('click', () => {
 closeCardForm.addEventListener('click', () => {
   closePopup(popupCard);
 });
+
 
 closePopupImage.addEventListener('click', () => {
   closePopup(popupImage);
