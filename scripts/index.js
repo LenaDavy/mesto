@@ -14,6 +14,7 @@ const closeCardForm = document.querySelector('.popup-card__close');
 const popupTitle = document.querySelector('.popup__input_type_title');
 const popupAttribute = document.querySelector('.popup__input_type_attribute');
 const formCard = document.querySelector('.popup-card__form');
+const createButton = popupCard.querySelector('.popup__button');
 
 const popupImage = document.querySelector('.popup-image');
 const popupCity = document.querySelector('.popup-image__city');
@@ -24,15 +25,14 @@ const template = document.querySelector('.template').content;
 const cards = document.querySelector('.cards');
 
 function closePopupByOverlay (event) {
-  const activePopup = document.querySelector('.popup_opened')
   if(event.target.classList.contains('popup_opened')) { 
-    closePopup(activePopup);
+    closePopup(event.target);
   };
 };
 
 function closePopupByEsc (event) {
-  const activePopup = document.querySelector('.popup_opened')
   if (event.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_opened');
     closePopup(activePopup);
   };
 }; 
@@ -103,7 +103,10 @@ formProfile.addEventListener('submit', (event) => {
 
 addButton.addEventListener('click', () => {
   openPopup(popupCard);
+  createButton.disabled;
+  createButton.classList.add('popup__button_inactive');
 });
+
 closeCardForm.addEventListener('click', () => {
   closePopup(popupCard);
 });

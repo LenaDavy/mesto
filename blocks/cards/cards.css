@@ -4,12 +4,14 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: minmax(362px, 1fr);
-  gap: 20px 17px;
+  gap: 17px 20px;
   grid-auto-rows: minmax(362px, 1fr);
+  justify-items: center;
+  justify-content: space-around;
 }
 
 
-@media screen and (max-width: 1199px) and (min-width: 600px) {
+@media screen and (max-width: 1279px) and (min-width: 600px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
   }

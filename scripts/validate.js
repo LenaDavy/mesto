@@ -1,6 +1,6 @@
-const showErrorNotice = (selectedForm, selectedInput, validationMessage, validationConfig) => {
+const showErrorNotice = (selectedForm, selectedInput, validationConfig) => {
   const errorNotice = selectedForm.querySelector(`.${selectedInput.id}-error`);
-  errorNotice.textContent = validationMessage;
+  errorNotice.textContent = selectedInput.validationMessage;
   selectedInput.classList.add(validationConfig.inputErrorClass);
   errorNotice.classList.add(validationConfig.errorClass);
 };
@@ -14,7 +14,7 @@ const hideErrorNotice = (selectedForm, selectedInput, validationConfig) => {
 
 const checkInputValidity = (selectedForm, selectedInput, validationConfig) => {
   if (!selectedInput.validity.valid) {
-    showErrorNotice(selectedForm, selectedInput, selectedInput.validationMessage, validationConfig);
+    showErrorNotice(selectedForm, selectedInput, validationConfig);
   } else {
     hideErrorNotice(selectedForm, selectedInput, validationConfig);
   }
