@@ -103,7 +103,7 @@ formProfile.addEventListener('submit', (event) => {
 
 addButton.addEventListener('click', () => {
   openPopup(popupCard);
-  createButton.disabled;
+  createButton.disabled = true;
   createButton.classList.add('popup__button_inactive');
 });
 
