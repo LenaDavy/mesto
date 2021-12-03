@@ -1,4 +1,4 @@
-import { popupImage, popupCity, popupPicture, openPopup } from "./index.js";
+import { popupImage, popupCity, popupPicture, openPopup } from "./popupUtils.js";
 export class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
@@ -9,7 +9,7 @@ export class Card {
   const newItem = document.querySelector(this._cardSelector).content.querySelector('.card').cloneNode(true);
   return newItem;
   };
-  generateCard() {
+  fillCard() {
     this._item = this._getCardTemplate();
     this._item.querySelector('.card__city').textContent = this._name;
     this._item.querySelector('.card__img').src = this._link;
@@ -27,6 +27,7 @@ export class Card {
   };
   _removeCard() {
     this._item.remove();
+    this._item = null;
   };
   _setEventListeners() {
     this._item.querySelector('.card__img').addEventListener('click', event => {

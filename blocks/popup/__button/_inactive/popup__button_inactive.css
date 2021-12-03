@@ -4,4 +4,5 @@
 
 .popup__button_inactive:hover {
   cursor: default;
+  opacity: 1;
 }
