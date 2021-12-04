@@ -1,7 +1,7 @@
 import { popupImage, openPopup, closePopup } from "./popupUtils.js"
 import { initialValue } from "./cardsInitialValue.js";
-import { Card } from "./card.js";
-import { FormValidator } from "./formValidator.js";
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
 
 const editButton = document.querySelector('.profile__edit-button');
 const profileTitle = document.querySelector('.profile__title');
@@ -24,6 +24,7 @@ const createButton = popupCard.querySelector('.popup__button');
 const closePopupImage = document.querySelector('.popup-image__close');
 
 const cards = document.querySelector('.cards');
+const cardSelector = document.querySelector('.card-template_type_default');
 
 function createNewCard(data, cardSelector) {
   const newCard = new Card(data, cardSelector);
@@ -43,7 +44,7 @@ function attachFormValidator(config) {
 };
 
 initialValue.forEach((item) => {
-  const createdCard = createNewCard(item, '.card-template_type_default');
+  const createdCard = createNewCard(item, cardSelector);
   renderCard(createdCard);
 });
 
@@ -62,7 +63,7 @@ formCard.addEventListener('submit', evt => {
     name: popupTitle.value,
     link: popupAttribute.value
   };
-  const userCard = createNewCard(userValue, '.card-template_type_default')
+  const userCard = createNewCard(userValue, cardSelector);
   createNewCard(userCard);
   renderCard(userCard);
   closePopup(popupCard);
@@ -85,9 +86,8 @@ formProfile.addEventListener('submit', (event) => {
 });
 
 addButton.addEventListener('click', () => {
+  popupCard.disableCreateButton;
   openPopup(popupCard);
-  createButton.disabled = true;
-  createButton.classList.add('popup__button_inactive');
 });
 
 closeCardForm.addEventListener('click', () => {

@@ -6,7 +6,7 @@ export class Card {
     this._cardSelector = cardSelector;
   };
   _getCardTemplate() {
-  const newItem = document.querySelector(this._cardSelector).content.querySelector('.card').cloneNode(true);
+  const newItem = this._cardSelector.content.querySelector('.card').cloneNode(true);
   return newItem;
   };
   fillCard() {
@@ -16,6 +16,10 @@ export class Card {
     this._setEventListeners();
     return this._item;
   };
+  disableCreateButton() {
+    createButton.disabled = true;
+    createButton.classList.add('popup__button_inactive');
+  }
   _openPopup() {
     openPopup(popupImage);
     popupPicture.setAttribute('src', this._link);
