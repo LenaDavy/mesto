@@ -1,5 +1,5 @@
 import { popupImage, openPopup, closePopup } from "./popupUtils.js"
-import { initialValue } from "./cardsInitialValue.js";
+import { initialValue, popupCard } from "./cardsInitialValue.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
@@ -14,20 +14,17 @@ const popupName = document.querySelector('.popup__input_type_name');
 const popupActivity = document.querySelector('.popup__input_type_activity');
 const formProfile = document.querySelector('.popup-profile__form');
 
-const popupCard = document.querySelector('.popup-card');
 const closeCardForm = document.querySelector('.popup-card__close');
 const popupTitle = document.querySelector('.popup__input_type_title');
 const popupAttribute = document.querySelector('.popup__input_type_attribute');
 const formCard = document.querySelector('.popup-card__form');
-const createButton = popupCard.querySelector('.popup__button');
 
 const closePopupImage = document.querySelector('.popup-image__close');
 
 const cards = document.querySelector('.cards');
-const cardSelector = document.querySelector('.card-template_type_default');
 
-function createNewCard(data, cardSelector) {
-  const newCard = new Card(data, cardSelector);
+function createNewCard(data) {
+  const newCard = new Card(data);
   return newCard;
 };
 
@@ -40,11 +37,12 @@ function attachFormValidator(config) {
   formsList.forEach((selectedForm) => {
     const newFormValidator = new FormValidator(config, selectedForm);
     newFormValidator.enableValidation();
+    newFormValidator.disableCreateButton();
   });
 };
 
 initialValue.forEach((item) => {
-  const createdCard = createNewCard(item, cardSelector);
+  const createdCard = createNewCard(item);
   renderCard(createdCard);
 });
 
@@ -63,7 +61,7 @@ formCard.addEventListener('submit', evt => {
     name: popupTitle.value,
     link: popupAttribute.value
   };
-  const userCard = createNewCard(userValue, cardSelector);
+  const userCard = createNewCard(userValue);
   createNewCard(userCard);
   renderCard(userCard);
   closePopup(popupCard);
@@ -86,7 +84,6 @@ formProfile.addEventListener('submit', (event) => {
 });
 
 addButton.addEventListener('click', () => {
-  popupCard.disableCreateButton;
   openPopup(popupCard);
 });
 

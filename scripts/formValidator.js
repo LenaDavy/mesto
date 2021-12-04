@@ -1,9 +1,11 @@
+import { createButton } from "./cardsInitialValue.js";
 export class FormValidator {
   constructor(config, selectedForm) {
     this._config = config;
     this._form = selectedForm;
     this._inputsList = Array.from(this._form.querySelectorAll(this._config.inputSelector));
     this._submitButton = this._form.querySelector(this._config.submitButtonSelector);
+    this._cardSelector = config.сardSelector;
   };
 
   _showErrorNotice(selectedInput) {
@@ -18,6 +20,11 @@ export class FormValidator {
     selectedInput.classList.remove(this._config.inputErrorClass);
     errorNotice.classList.remove(this._config.errorClass);
     errorNotice.textContent = '';
+  };
+
+  disableCreateButton() {
+    createButton.disabled = true;
+    createButton.classList.add('popup__button_inactive');
   };
 
   _checkInputValidity(selectedInput) {
