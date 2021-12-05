@@ -22,9 +22,19 @@ const formCard = document.querySelector('.popup-card__form');
 const closePopupImage = document.querySelector('.popup-image__close');
 
 const cards = document.querySelector('.cards');
+const cardSelector = '.card-template';
+
+const popupConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_inactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active'
+};
 
 function createNewCard(data) {
-  const newCard = new Card(data);
+  const newCard = new Card(data, cardSelector);
   return newCard;
 };
 
@@ -32,28 +42,26 @@ function renderCard(card) {
   cards.prepend(card.fillCard());
 };
 
+function connectFormValidator(config, selectedForm) {
+  const connectedFormValidator = new FormValidator(config, selectedForm);
+  connectedFormValidator.enableValidation();
+  connectedFormValidator.disableCreateButton();
+};
+
 function attachFormValidator(config) {
   const formsList = Array.from(document.querySelectorAll(config.formSelector));
   formsList.forEach((selectedForm) => {
-    const newFormValidator = new FormValidator(config, selectedForm);
-    newFormValidator.enableValidation();
-    newFormValidator.disableCreateButton();
+    connectFormValidator(config, selectedForm);
   });
 };
+
+attachFormValidator(popupConfig);
 
 initialValue.forEach((item) => {
   const createdCard = createNewCard(item);
   renderCard(createdCard);
 });
 
-attachFormValidator({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_inactive',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active'
-});
 
 formCard.addEventListener('submit', evt => {
   evt.preventDefault();
@@ -84,6 +92,7 @@ formProfile.addEventListener('submit', (event) => {
 });
 
 addButton.addEventListener('click', () => {
+  connectFormValidator(popupConfig, popupCard);
   openPopup(popupCard);
 });
 

@@ -1,6 +1,5 @@
 export const popupCard = document.querySelector('.popup-card');
 export const createButton = popupCard.querySelector('.popup__button');
-export const cardSelector = '.card-template';
 export const initialValue = [{
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'

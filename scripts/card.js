@@ -1,12 +1,12 @@
 import { popupImage, popupCity, popupPicture, openPopup } from "./popupUtils.js";
-import { cardSelector } from "./cardsInitialValue.js";
 export class Card {
-  constructor(data) {
+  constructor(data, cardSelector) {
     this._name = data.name;
     this._link = data.link;
+    this._cardSelector = cardSelector;
   };
   _getCardTemplate() {
-  const newItem = document.querySelector(cardSelector).content.querySelector('.card').cloneNode(true);
+  const newItem = document.querySelector(this._cardSelector).content.querySelector('.card').cloneNode(true);
   return newItem;
   };
   fillCard() {
