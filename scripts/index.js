@@ -31,7 +31,6 @@ const formCard = document.querySelector('.popup-card__form');
 const popupCardValidation = new FormValidator(popupConfig, popupCard);
 
 const closePopupImage = document.querySelector('.popup-image__close');
-const popupImageValidation = new FormValidator(popupConfig, popupImage);
 
 const cards = document.querySelector('.cards');
 const cardSelector = '.card-template';
@@ -52,7 +51,6 @@ initialValue.forEach((item) => {
 
 popupCardValidation.enableValidation();
 popupProfileValidation.enableValidation();
-popupImageValidation.enableValidation();
 
 formCard.addEventListener('submit', evt => {
   evt.preventDefault();
