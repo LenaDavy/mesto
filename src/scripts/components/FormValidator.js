@@ -1,8 +1,7 @@
-import { createButton } from "./cardsInitialValue.js";
-export class FormValidator {
-  constructor(config, selectedPopup) {
+export default class FormValidator {
+  constructor(config, popupSelector) {
     this._config = config;
-    this._popup = selectedPopup;
+    this._popup = document.querySelector(popupSelector);
   };
 
   _showErrorNotice(selectedInput) {
@@ -20,8 +19,8 @@ export class FormValidator {
   };
 
   disableCreateButton() {
-    createButton.disabled = true;
-    createButton.classList.add(this._config.inactiveButtonClass);
+    this._popup.querySelector('.popup__button').disabled = true;
+    this._popup.querySelector('.popup__button').classList.add(this._config.inactiveButtonClass);
   };
 
   _checkInputValidity(selectedInput) {
