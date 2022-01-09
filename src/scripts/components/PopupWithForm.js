@@ -7,8 +7,9 @@ export default class PopupWithForm extends Popup {
   };
 
   setInputsValues(data) {
-    this._inputsList[0].value = data.name;
-    this._inputsList[1].value = data.activity;
+    this._inputsList.forEach(input => {
+      input.value = data[input.name] || '';
+    }); 
   };
 
   _getInputValues() {
@@ -25,7 +26,11 @@ export default class PopupWithForm extends Popup {
       event.preventDefault();
       this._handleFormSubmit(this._getInputValues());
       this.closePopup();
-      event.target.reset();
     });
+  };
+
+  closePopup() {
+    super.closePopup();
+    this._form.reset();
   };
 };

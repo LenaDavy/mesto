@@ -2,6 +2,7 @@ export default class FormValidator {
   constructor(config, popupSelector) {
     this._config = config;
     this._popup = document.querySelector(popupSelector);
+    this._submitButton = this._popup.querySelector(this._config.submitButtonSelector);
   };
 
   _showErrorNotice(selectedInput) {
@@ -18,9 +19,9 @@ export default class FormValidator {
     errorNotice.textContent = '';
   };
 
-  disableCreateButton() {
-    this._popup.querySelector('.popup__button').disabled = true;
-    this._popup.querySelector('.popup__button').classList.add(this._config.inactiveButtonClass);
+  disableSubmitButton() {
+    this._submitButton.disabled = true;
+    this._submitButton.classList.add(this._config.inactiveButtonClass);
   };
 
   _checkInputValidity(selectedInput) {
@@ -38,13 +39,11 @@ export default class FormValidator {
   }; 
 
   _toggleButtonState(inputsList) {
-    const submitButton = this._popup.querySelector(this._config.submitButtonSelector);
     if (this._hasInvalidInput(inputsList)) {
-      submitButton.setAttribute('disabled', true);
-      submitButton.classList.add(this._config.inactiveButtonClass);
+      this.disableSubmitButton();
     } else {
-      submitButton.removeAttribute('disabled', true);
-      submitButton.classList.remove(this._config.inactiveButtonClass);
+      this._submitButton.removeAttribute('disabled', true);
+      this._submitButton.classList.remove(this._config.inactiveButtonClass);
     }
   };
 

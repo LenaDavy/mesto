@@ -14,6 +14,7 @@ export default class Card {
     this._item = this._getCardTemplate();
     this._item.querySelector('.card__city').textContent = this._name;
     this._item.querySelector('.card__img').src = this._link;
+    this._item.querySelector('.card__img').alt = this._name;
     this._setEventListeners();
     return this._item;
   };
