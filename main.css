@@ -18,7 +18,7 @@
 .card__img{height:100%;max-height:282px}
 .card__description{background-color:#fff;display:flex;justify-content:space-between;padding:22px 21px}
 .card__city{color:#000;font-size:24px;font-weight:900;line-height:1.2;margin:0;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}
-.card__like-area{align-items:flex-end;display:flex;flex-direction:column;justify-content:space-between}
+.card__like-area{align-items:center;display:flex;flex-direction:column;justify-content:space-between}
 .card__like-button{background:url(87ed371465c7a6a1cd01.svg) no-repeat 50%;border:none;height:19px;width:22px}.card__like-button:hover{cursor:pointer;opacity:.5}
 .card__like-button_active{background:url(e787eeb70bb65b7b453a.svg) no-repeat 50%}
 .card__like-counter{color:#000;font-size:13px;font-weight:400;line-height:18px;margin:0;padding:0}
