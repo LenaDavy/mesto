@@ -34,7 +34,7 @@
 .popup__input{border:none;border-bottom:1px solid rgba(0,0,0,.2);color:#000;font-family:inherit;font-size:14px;line-height:1.21;margin:0;outline:none;padding-bottom:13px;width:100%}.popup__input::-moz-placeholder{color:#000;font-family:inherit;font-size:14px;line-height:1.21}.popup__input:-ms-input-placeholder{color:#c4c4c4}.popup__input::placeholder{color:#c4c4c4}
 .popup__input_type_error{border-bottom-color:red}
 .popup__input-error{color:red;display:block;font-size:12px;height:30px;line-height:1.4;min-width:358px}@media screen and (max-width:767px){.popup__input-error{min-width:238px}}
-.popup__button{background-color:#000;border:none;color:#fff;font-size:18px;margin-top:18px;min-height:50px;width:100%}.popup__button:hover{cursor:pointer;opacity:.8}@media screen and (max-width:767px){.popup__button{font-size:14px;margin-top:15px}}
+.popup__button{background-color:#000;border:none;color:#fff;font-size:18px;margin-top:18px;min-height:50px;min-width:430px}.popup__button:hover{cursor:pointer;opacity:.8}@media screen and (max-width:767px){.popup__button{font-size:14px;margin-top:15px}}
 .popup__button_inactive{background-color:#e5e5e5}.popup__button_inactive:hover{cursor:default;opacity:1}
 .popup-image__main{display:flex;flex-direction:column;height:100%;margin:auto;max-height:75vh;max-width:75vw;position:relative}
 .popup-image__city{color:#fff;font-size:12px;font-weight:400;line-height:1.2;margin:10 0 0}
