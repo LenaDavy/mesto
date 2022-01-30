@@ -1,0 +1,16 @@
+.popup-confirm__form-title {
+    margin: 0 0 20px;
+    color: #000000;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+  
+  
+  @media screen and (max-width: 767px) {
+    .popup-confirm__form-title {
+      margin: 0 0 40px;
+      font-size: 18px;
+      line-height: 1.22;
+    }
+  }

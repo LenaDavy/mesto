@@ -1,9 +1,9 @@
 .profile__info {
-    display: grid;
-    width: 100%;
-    grid-template-columns: fit-content(calc(100% - 42px)) 24px;
-    gap: 16px 18px;
-    align-items: end;
+  display: grid;
+  width: 100%;
+  grid-template-columns: fit-content(calc(100% - 42px)) 24px;
+  gap: 16px 18px;
+  align-items: end;
 }
 
 
