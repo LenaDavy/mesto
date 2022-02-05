@@ -14,7 +14,7 @@ export default class Card {
 
   fillCard() {
     this._item = this._getCardTemplate();
-    this._removeDeleteButton();
+    this._handleUserInfo();
     this._item.querySelector(this._cardConfig.cardLikeCounterSelector).textContent = this._data.likes.length;
     this._item.querySelector(this._cardConfig.cardCitySelector).textContent = this._data.name;
     const cardImage = this._item.querySelector(this._cardConfig.cardImageSelector);
@@ -24,7 +24,7 @@ export default class Card {
     return this._item;
   };
 
-  _countLikes(cardId) {
+  _countLikes(cardId, evt) {
     const likesCounter = this._item.querySelector(this._cardConfig.cardLikeCounterSelector);
     api.getUserInfo()
     .then(userData => {
@@ -33,38 +33,39 @@ export default class Card {
         .then(res => {
           this._data.likes = res.likes;
           likesCounter.textContent = res.likes.length;
+          evt.target.classList.remove(this._cardConfig.cardLikeButtonActiveSelector);
         })
         .catch((res) => { console.log(`Error: ${res.status}`)})
       } else { api.putLike(cardId)
         .then(res => {
-          this._data.likes = res.likes;
+          this._data = res;
           likesCounter.textContent = res.likes.length;
+          evt.target.classList.add(this._cardConfig.cardLikeButtonActiveSelector);
         })
         .catch((res) => { console.log(`Error: ${res.status}`)})
     }})
   };
 
-  _toggleLikeImg(evt) {
-    evt.target.classList.toggle(this._cardConfig.cardLikeButtonActiveSelector);
-  };
-
-  _removeDeleteButton() {
+  _handleUserInfo() {
     api.getUserInfo()
     .then(res => {
       if (res._id === this._data.owner._id) { return
       } else {
-        this._item.querySelector(this._cardConfig.cardDeleteButtonSelector).remove()}
+        this._item.querySelector(this._cardConfig.cardDeleteButtonSelector).remove()
+      }
+      if (this._data.likes.some((item) => {return item._id === res._id})) {
+        this._item.querySelector(this._cardConfig.cardLikeButtonSelector).classList.add(this._cardConfig.cardLikeButtonActiveSelector)
+      } else { return }
     })
     .catch((res) => { console.log(`Error: ${res.status}`)})
   };
-
+    
   _setEventListeners() {
     this._item.querySelector(this._cardConfig.cardImageSelector).addEventListener('click', () => {
       this._handleClickImage();
     });
     this._item.querySelector(this._cardConfig.cardLikeButtonSelector).addEventListener('click', (evt) => {
-      this._toggleLikeImg(evt);
-      this._countLikes(this._data._id)
+      this._countLikes(this._data._id, evt)
     });
     this._item.querySelector(this._cardConfig.cardDeleteButtonSelector).addEventListener('click', () => {
       this._handleClickDeleteButton(this._data._id, this._item)

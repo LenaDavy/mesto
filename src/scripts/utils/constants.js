@@ -25,6 +25,7 @@ export const popupConfig = {
 
 export const cards = document.querySelector('.cards');
 export const avatarEditButton = document.querySelector('.profile__photo');
+export const avatarEditMark = document.querySelector('.profile__avatar-edit')
 export const editButton = document.querySelector('.profile__edit-button');
 export const addButton = document.querySelector('.profile__add-button');
 export const confirmButton = document.querySelector('.popup__button-confirm');

@@ -1,6 +1,5 @@
 export default class Section {
-  constructor({ array, renderer}, container) {
-    this._initialArray = array;
+  constructor({renderer}, container) {
     this._renderer = renderer;
     this._container = container;
   };
@@ -13,9 +12,13 @@ export default class Section {
     }
   };
 
-  renderItems() {
-    this._initialArray.forEach((item) => {
-      item.onload = this._renderer(item);
+  renderItems([array], method) {
+    array.forEach((item) => {
+      item.onload = this._renderer(item, method);
     });
   };
+
+  renderUserItem(userCard, method) {
+    userCard.onload = this._renderer(userCard, method);
+  }
 };
