@@ -38,7 +38,7 @@ export default class Card {
         .catch((res) => { console.log(`Error: ${res.status}`)})
       } else { api.putLike(cardId)
         .then(res => {
-          this._data = res;
+          this._data.likes = res.likes;
           likesCounter.textContent = res.likes.length;
           evt.target.classList.add(this._cardConfig.cardLikeButtonActiveSelector);
         })

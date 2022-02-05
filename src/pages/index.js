@@ -42,7 +42,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   infoProfile.setUserInfo(userData)
   cardsList.renderItems([cards], true)
 })
-.catch((res) => { console.log(`Error: ${res.status}`)});
+.catch((res) => { console.log(`Error: ${res.status}`)})
 
 
 const confirmPopup = new PopupConformation('.popup-confirm', popupConfig);
