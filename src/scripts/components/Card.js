@@ -53,7 +53,7 @@ export default class Card {
       } else {
         this._item.querySelector(this._cardConfig.cardDeleteButtonSelector).remove()
       }
-      if (this._data.likes.some((item) => {return item._id === res._id})) {
+      if (this._data.likes.some((item) => {return item._id == res._id})) {
         this._item.querySelector(this._cardConfig.cardLikeButtonSelector).classList.add(this._cardConfig.cardLikeButtonActiveSelector)
       } else { return }
     })

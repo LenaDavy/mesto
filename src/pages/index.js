@@ -52,8 +52,9 @@ const popupWithImage = new PopupWithImage('.popup-image', popupConfig);
 popupWithImage.setEventListeners();
 
 const avatarPopup = new PopupWithForm('.popup-avatar', popupConfig, {handleFormSubmit: (inputValue) => {
+  avatarPopup.renderLoading(false);
   api.changeUserAvatar(inputValue)
-  .then(res => {avatarPopup.renderLoading(false); infoProfile.setUserInfo(res)})
+  .then(res => { infoProfile.setUserInfo(res)})
   .catch(res => { console.log(`Error: ${res.status}`)})
   .finally(() => {avatarPopup.renderLoading(true); avatarPopup.closePopup()})
 }});
@@ -62,6 +63,7 @@ const popupAvatarValidation = new FormValidator(popupConfig, '.popup-avatar');
 popupAvatarValidation.enableValidation();
 
 const profilePopup = new PopupWithForm('.popup-profile', popupConfig, {handleFormSubmit: (inputsValues) => {
+  profilePopup.renderLoading(false);
   api.changeUserInfo(inputsValues)
   .then(res => {infoProfile.setUserInfo(res)})
   .catch(res => { console.log(`Error: ${res.status}`)})
@@ -72,6 +74,7 @@ const popupProfileValidation = new FormValidator(popupConfig, '.popup-profile');
 popupProfileValidation.enableValidation();
 
 const cardPopup = new PopupWithForm('.popup-card', popupConfig, {handleFormSubmit: (cardPopupValues) => {
+  cardPopup.renderLoading(false);
   api.createUserCard(cardPopupValues)
   .then(res => {cardsList.renderUserItem(res, false)})
   .catch(res => { console.log(`Error: ${res.status}`)})
